@@ -14,12 +14,12 @@ export const LAYOUT_ROUTES: Routes = [
                  loadChildren: () => import('../dashboard/dashboard.routes').then(m => m.DASHBOARD_ROUTES),
                 title: 'Dashboard'
             },
-                // Ruta 404 para páginas no encontradas
             {
-                path: '**',
-                loadChildren: () => import('../error/error.routes').then(m => m.ERROR_ROUTES),
-                title: 'Página no encontrada'
-            }
+                path: 'change-detection',
+                 loadChildren: () => import('../change-detection/change-detection.routes').then(m => m.CHANGEDETECTION_ROUTES),
+                title: 'Change Detection'
+            },
+             { path: '**', redirectTo: 'error/404' },
         ]
 
     }

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { Card } from '../../../../shared/components/card/card';
+import { HeaderTitle } from "../../../../shared/components/header-title/header-title";
 
 @Component({
   selector: 'app-test',
-  imports: [],
+  imports: [Card, HeaderTitle],
   templateUrl: './test.html',
   styleUrl: './test.css'
 })

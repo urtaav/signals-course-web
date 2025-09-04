@@ -1,15 +1,12 @@
-@for (menu of menuService.pagesMenu; track $index) {
-<div class="dropdown relative inline-block">
-    <!-- Button -->
-    <button [ngClass]="
-      menu.selected || menu.active
-        ? 'bg-primary text-primary-foreground'
-        : 'text-muted-foreground/50 hover:bg-card hover:text-muted-foreground '
-    " class="mr-2 inline-flex rounded-md px-3 py-2 text-sm font-medium">
-        <span>{{ menu.group }}</span>
-    </button>
-    <!-- Dropdown  -->
-    <div class="dropdown-content absolute top-[100%] min-w-[200px] origin-top-left z-10" navbar-submenu
-        [submenu]="menu.items"></div>
-</div>
+@for (menu of pagesMenu; track menu.id) {
+  <a 
+    [routerLink]="menu.route" 
+    [ngClass]="{
+      'bg-primary text-primary-foreground': menu.selected || menu.active,
+      'text-muted-foreground/50 hover:bg-card hover:text-muted-foreground': !(menu.selected || menu.active)
+    }"
+    class="mr-2 inline-flex rounded-md px-3 py-2 text-sm font-medium transition-colors duration-200"
+    [routerLinkActive]="'bg-primary text-primary-foreground'">
+    <span>{{ menu.group }}</span>
+  </a>
 }

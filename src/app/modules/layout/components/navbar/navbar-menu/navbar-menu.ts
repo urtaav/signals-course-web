@@ -1,12 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { MenuService } from '../../../services/menu';
 import { NgClass } from '@angular/common';
-import { MenuItem } from '../../../../../core/models/menu.model';
+import { MenuItem, MenuItemNavbar } from '../../../../../core/models/menu.model';
 import { NavbarSubmenu } from '../navbar-submenu/navbar-submenu';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { PAGES_MENU } from '../../../../../core/constants/menuNavbar';
 
 @Component({
   selector: 'app-navbar-menu',
-  imports: [NgClass, NavbarSubmenu],
+  imports: [NgClass, NavbarSubmenu,RouterLink,RouterLinkActive],
   templateUrl: './navbar-menu.html',
   styleUrl: './navbar-menu.css'
 })
@@ -15,25 +17,11 @@ export class NavbarMenu {
   private hideMenuClass = ['scale-95', 'animate-fade-out-down', 'opacity-0', 'pointer-events-none'];
 
 
-  menuService: MenuService = inject(MenuService);
+  private _pagesMenu: MenuItemNavbar[] = [...PAGES_MENU];
 
-  public toggleMenu(menu: MenuItem): void {
-    menu.selected = !menu.selected;
-  }
-  public mouseEnter(event: any): void {
-    let element = event.target.querySelector('app-navbar-submenu').children[0];
-    if (element) {
-      this.hideMenuClass.forEach((c) => element.classList.remove(c));
-      this.showMenuClass.forEach((c) => element.classList.add(c));
-    }
-  }
+   get pagesMenu(): MenuItemNavbar[] {
+    return this._pagesMenu;
+   }
 
-  public mouseLeave(event: any): void {
-    let element = event.target.querySelector('app-navbar-submenu').children[0];
-    if (element) {
-      this.showMenuClass.forEach((c) => element.classList.remove(c));
-      this.hideMenuClass.forEach((c) => element.classList.add(c));
-    }
-  }
 
 }

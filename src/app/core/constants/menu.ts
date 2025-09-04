@@ -1,64 +1,90 @@
-import { MenuItem } from "../models/menu.model";
+import { MenuItem } from '../models/menu.model';
 
 export class Menu {
   public static pages: MenuItem[] = [
     {
-      group: 'Base',
+      group: 'Signals',
       separator: false,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/chart-pie.svg',
-          label: 'Dashboard',
-          route: '/dashboard',
-          children: [{ label: 'Nfts', route: '/dashboard/nfts' }],
+          icon: 'icons/heroicons/outline/chart-pie.svg',
+          label: 'Change Detection',
+          route: '/change-detection',
+          children: [{ label: 'Default Change Detection indirect', route: '/change-detection/default-change-detection-indirect' },
+          { label: 'Default Change Detection direct', route: '/change-detection/default-change-detection-direct' },
+          { label: 'OnPush Change Detection', route: '/change-detection/onpush-change-detection' },
+          { label: 'Signal Change Detection', route: '/change-detection/signal-change-detection' },
+          ],
         },
         {
-          icon: 'assets/icons/heroicons/outline/lock-closed.svg',
-          label: 'Auth',
+          icon: 'icons/heroicons/outline/lock-closed.svg',
+          label: 'Core Primitives',
           route: '/auth',
           children: [
-            { label: 'Sign up', route: '/auth/sign-up' },
-            { label: 'Sign in', route: '/auth/sign-in' },
-            { label: 'Forgot Password', route: '/auth/forgot-password' },
-            { label: 'New Password', route: '/auth/new-password' },
-            { label: 'Two Steps', route: '/auth/two-steps' },
+            { label: 'Counter Computed Signal', route: '/auth/sign-up' },
+            { label: 'Counter Effect Signal', route: '/auth/sign-in' },
+            { label: 'LinkedSignal Race Condition', route: '/auth/forgot-password' },
+            { label: 'LinkedSignal', route: '/auth/new-password' }
           ],
         },
         {
-          icon: 'assets/icons/heroicons/outline/exclamation-triangle.svg',
-          label: 'Errors',
+          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          label: 'Input / Output',
           route: '/errors',
           children: [
-            { label: '404', route: '/errors/404' },
-            { label: '500', route: '/errors/500' },
+            { label: 'Using Decorators', route: '/errors/404' },
+            { label: 'Using Signals', route: '/errors/500' },
           ],
         },
         {
-          icon: 'assets/icons/heroicons/outline/cube.svg',
-          label: 'Components',
-          route: '/components',
-          children: [{ label: 'Table', route: '/components/table' }],
-        },
-      ],
-    },
-    {
-      group: 'Collaboration',
-      separator: true,
-      items: [
-        {
-          icon: 'assets/icons/heroicons/outline/download.svg',
-          label: 'Download',
-          route: '/download',
+          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          label: 'Model Examples',
+          route: '/errors',
+          children: [
+            { label: 'ng-model Example', route: '/errors/404' },
+            { label: 'Model Signal', route: '/errors/500' },
+            { label: '/model-io-signal', route: '/errors/500' },
+          ],
         },
         {
-          icon: 'assets/icons/heroicons/outline/gift.svg',
-          label: 'Gift Card',
-          route: '/gift',
+          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          label: 'Queries',
+          route: '/errors',
+          children: [
+            { label: 'Query Decorator', route: '/errors/404' },
+            { label: 'Query Signal', route: '/errors/500' },
+          ],
         },
         {
-          icon: 'assets/icons/heroicons/outline/users.svg',
-          label: 'Users',
-          route: '/users',
+          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          label: 'Router',
+          route: '/errors',
+          children: [
+            { label: 'Without Signals', route: '/errors/404' },
+            { label: 'With Signals', route: '/errors/500' },
+          ],
+        },
+        {
+          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          label: 'Async / Resources',
+          route: '/errors',
+          children: [
+            { label: 'Async HttpClient', route: '/errors/404' },
+            { label: 'Resource Signal', route: '/errors/500' },
+            { label: 'Async httpResource', route: '/errors/500' },
+          ],
+        },
+        {
+          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          label: 'RxJS Interop',
+          route: '/errors',
+          children: [
+            { label: 'toSignal', route: '/errors/404' },
+            { label: 'toObservable', route: '/errors/500' },
+            { label: 'rxResource', route: '/errors/500' },
+            { label: 'takeUntilDestroyed', route: '/errors/500' },
+            { label: 'Output Examples', route: '/errors/500' },
+          ],
         },
       ],
     },
@@ -67,17 +93,17 @@ export class Menu {
       separator: false,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/cog.svg',
+          icon: 'icons/heroicons/outline/cog.svg',
           label: 'Settings',
           route: '/settings',
         },
         {
-          icon: 'assets/icons/heroicons/outline/bell.svg',
+          icon: 'icons/heroicons/outline/bell.svg',
           label: 'Notifications',
           route: '/gift',
         },
         {
-          icon: 'assets/icons/heroicons/outline/folder.svg',
+          icon: 'icons/heroicons/outline/folder.svg',
           label: 'Folders',
           route: '/folders',
           children: [
