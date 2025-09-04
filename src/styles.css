@@ -12,7 +12,6 @@
 /* // @plugin "tailwind-scrollbar"; */
 
 @custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   --font-*: initial;
   --font-poppins: Poppins, system-ui, sans-serif;
@@ -162,7 +161,7 @@
     --foreground: #0C1420;
     --card: #F1F5F9;
     --card-foreground: #000000;
-    --primary: #0D1164;
+    --primary: #E11D48;
     --primary-foreground: #FFFFFF;
     --muted: #CFD9E5;
     --muted-foreground: #64748B;
@@ -172,7 +171,7 @@
   }
 
   .dark {
-   --background: #0A0A0A;
+    --background: #0A0A0A;
     --foreground: #F2F2F2;
     --card: #121212;
     --card-foreground: #262626;
