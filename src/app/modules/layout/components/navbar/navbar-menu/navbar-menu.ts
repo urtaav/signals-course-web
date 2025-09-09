@@ -2,13 +2,12 @@ import { Component, inject } from '@angular/core';
 import { MenuService } from '../../../services/menu';
 import { NgClass } from '@angular/common';
 import { MenuItem, MenuItemNavbar } from '../../../../../core/models/menu.model';
-import { NavbarSubmenu } from '../navbar-submenu/navbar-submenu';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { PAGES_MENU } from '../../../../../core/constants/menuNavbar';
 
 @Component({
   selector: 'app-navbar-menu',
-  imports: [NgClass, NavbarSubmenu,RouterLink,RouterLinkActive],
+  imports: [NgClass,RouterLink,RouterLinkActive],
   templateUrl: './navbar-menu.html',
   styleUrl: './navbar-menu.css'
 })

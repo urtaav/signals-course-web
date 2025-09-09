@@ -1,10 +1,171 @@
 <div>
-    <app-header-title title="OnPush Change Detection"/>
+    <app-header-title title="OnPush Change Detection" />
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
         <div class="md:col-span-2 xl:col-span-4">
             <app-card>
-              <p>Hey here is change detection indirect!</p>
+                <div class="space-y-4">
+                    <div
+                        class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-primary-500">
+                        <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            🎮 <span class="ml-2">Área de Pruebas</span>
+                        </h2>
+
+                        <div class="flex items-center  gap-2">
+                            <app-button (buttonClick)="mutateUser()" full impact="bold" tone="primary" shape="rounded"
+                                size="medium">
+                                🔧 Mutate user.name
+                            </app-button>
+
+                            <app-button (buttonClick)="replaceUser()" full impact="bold" tone="primary" shape="rounded"
+                                size="medium">
+                                🔄 Replace user object
+                            </app-button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-primary-400">
+                        <h3 class="font-medium mb-2 text-gray-700">Estado actual del usuario:</h3>
+                        <pre class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ user | json }}</pre>
+                    </div>
+
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <h3 class="font-medium mb-2 text-blue-800">Componente Hijo (OnPush):</h3>
+                        <div class="bg-white p-3 rounded border">
+                            <app-child [user]="user"></app-child>
+                        </div>
+                    </div>
+                </div>
             </app-card>
+            <!-- Explanation Section -->
+            <div class="xl:col-span-1">
+                <app-card>
+                    <div
+                        class="bg-gradient-to-br from-purple-500 to-blue-600 text-white p-6 rounded-lg -m-6 sm:-m-8 lg:-m-8 mb-4">
+                        <h2 class="text-xl font-semibold mb-4 flex items-center">
+                            📚 <span class="ml-2">¿Cómo funciona OnPush?</span>
+                        </h2>
+
+                        <div class="space-y-4 text-sm">
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <h3 class="font-semibold mb-2">🚫 Angular omite componentes a menos que:</h3>
+                                <ul class="space-y-1 list-disc list-inside ml-2 text-xs">
+                                    <li>Se pase una nueva referencia a un input()</li>
+                                    <li>Actives manualmente la detección de cambios</li>
+                                    <li>Se dispare un evento del DOM</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                <h3 class="font-semibold mb-2 text-xs">🔍 Diferencias clave:</h3>
+                                <div class="text-xs space-y-1">
+                                    <p><strong>Mutación:</strong> Misma referencia → No actualiza</p>
+                                    <p><strong>Reemplazo:</strong> Nueva referencia → Actualiza</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </app-card>
+            </div>
+
+            <!-- Detailed Technical Explanation -->
+            <div class="md:col-span-2 xl:col-span-3">
+                <app-card>
+                    <div class="space-y-6">
+                        <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+                            📖 <span class="ml-2">Explicación Técnica Detallada</span>
+                        </h2>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Mutación -->
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-semibold text-red-600 flex items-center">
+                                    ❌ <span class="ml-2">Mutación (No funciona con OnPush)</span>
+                                </h3>
+                                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                                    <pre class="text-sm text-red-800 mb-3"><code>// Esto NO actualizará la vista en OnPush
+mutateUser() &#125;&#125;
+  this.user.name = 'Jane Doe';
+  // ⚠️ Misma referencia de objeto
+&#125;&#125;</code></pre>
+                                    <p class="text-sm text-red-700">
+                                        Angular no detecta el cambio porque la referencia del objeto permanece igual.
+                                        El componente hijo con OnPush no se re-renderiza.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Reemplazo -->
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-semibold text-green-600 flex items-center">
+                                    ✅ <span class="ml-2">Reemplazo (Funciona con OnPush)</span>
+                                </h3>
+                                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                                    <pre class="text-sm text-green-800 mb-3"><code>// Esto SÍ actualizará la vista en OnPush
+replaceUser() &#125;&#125;
+  this.user = &#125;&#125;
+    ...this.user, 
+    name: 'Jane Doe' 
+  &#125;&#125;;
+  // ✅ Nueva referencia de objeto&#125;&#125;</code></pre>
+                                    <p class="text-sm text-green-700">
+                                        Angular detecta el cambio porque se crea una nueva referencia del objeto.
+                                        El componente hijo con OnPush se re-renderiza correctamente.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tips Section -->
+                        <div
+                            class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg border-l-4 border-yellow-400">
+                            <h4 class="font-semibold text-yellow-800 mb-3 flex items-center">
+                                💡 <span class="ml-2">Mejores Prácticas para OnPush</span>
+                            </h4>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <ul class="text-sm text-yellow-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="text-yellow-500 mr-2">•</span>
+                                        Usa el operador spread (...) para crear nuevas referencias
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-yellow-500 mr-2">•</span>
+                                        Considera usar bibliotecas como Immer para inmutabilidad
+                                    </li>
+                                </ul>
+                                <ul class="text-sm text-yellow-700 space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="text-yellow-500 mr-2">•</span>
+                                        OnPush mejora significativamente el rendimiento
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-yellow-500 mr-2">•</span>
+                                        Siempre piensa en términos de inmutabilidad
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Performance Comparison -->
+                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
+                            <h4 class="font-semibold text-blue-800 mb-3 flex items-center">
+                                ⚡ <span class="ml-2">Impacto en el Rendimiento</span>
+                            </h4>
+                            <div class="grid sm:grid-cols-2 gap-4 text-sm">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h5 class="font-medium text-red-600 mb-2">Default Strategy</h5>
+                                    <p class="text-gray-600">Verifica todos los componentes en cada ciclo de detección
+                                        de cambios</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h5 class="font-medium text-green-600 mb-2">OnPush Strategy</h5>
+                                    <p class="text-gray-600">Solo verifica cuando cambian las referencias de los inputs
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </app-card>
+            </div>
         </div>
 
     </div>
