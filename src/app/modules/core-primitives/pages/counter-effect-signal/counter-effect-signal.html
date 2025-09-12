@@ -1,0 +1,125 @@
+<div>
+    <app-header-title title="Signal Effect counter" />
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+        <div class="md:col-span-2 xl:col-span-4">
+            <app-card>
+                <div class="max-w-4xl mx-auto p-6 space-y-6">
+                    <div class="text-center">
+                        <h1 class="text-3xl font-bold text-gray-800 mb-4">
+                            Angular Signals Premium Effect Demo
+                        </h1>
+                        <p class="text-gray-600 mb-6">
+                            ¡El contenido está bloqueado! Haz 10 clics para empezar a desbloquearlo y 40 para verlo
+                            completamente.
+                        </p>
+
+                        <div class="flex gap-4 justify-center mb-6">
+                            @switch (buttonClass()) {
+                            @case ('warning') {
+                                <app-button (click)="increment()" full impact="bold" tone="warning" shape="rounded"
+                                    size="medium">
+                                    {{ buttonText() }}
+                                </app-button>
+                            }
+                            @case ('danger') {
+                               <app-button (click)="increment()" full impact="bold" tone="danger" shape="rounded"
+                                    size="medium">
+                                    {{ buttonText() }}
+                                </app-button>
+                            }
+                            @default {
+                               <app-button (click)="increment()" full impact="bold" tone="primary" shape="rounded"
+                                    size="medium">
+                                    {{ buttonText() }}
+                                </app-button>
+                            }
+                            }
+
+                            <app-button (click)="reset()" full impact="bold" tone="info" shape="rounded" size="medium">
+                                Reset
+                            </app-button>
+                        </div>
+
+                        <!-- Status indicator -->
+                        <div class="mb-6">
+                            <div [ngClass]="statusClass()" class="px-4 py-3 rounded border">
+                                {{ statusMessage() }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content with progressive blur effect -->
+                    <div class="relative">
+                        <!-- Overlay for premium content -->
+
+                        @if (isPremiumBlocked()) {
+                            <div
+                                class="absolute inset-0 z-10 flex items-center justify-center bg-black bg-opacity-60 rounded-lg">
+                                <div class="bg-white p-6 rounded-lg shadow-xl text-center border-2 border-blue-400">
+                                    <div class="text-4xl mb-4">🔒</div>
+                                    <h3 class="text-xl font-bold text-gray-800 mb-2">Contenido Bloqueado</h3>
+                                    <p class="text-gray-600 mb-4">Haz 10 clics para empezar a desbloquear este contenido</p>
+                                    <div class="text-sm text-gray-500">
+                                        Progreso: {{ count1() }}/10 clics para empezar
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+                        <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-primary transition-all duration-500"
+                            [style.filter]="'blur(' + blurIntensity() + 'px)'" [style.opacity]="opacityLevel()"
+                            [style.transform]="isPremiumBlocked() ? 'scale(0.98)' : 'scale(1)'"
+                            [ngClass]="protectionClasses()"
+                            (selectstart)="preventSelection($event)"
+                            (contextmenu)="preventRightClick($event)">
+                            <h3 class="font-medium mb-2 text-gray-700" [style.text-shadow]="textShadow()">
+                                Current value of the counter0:
+                            </h3>
+                            <pre class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ count0 }}</pre>
+
+                            <h3 class="font-medium mb-2 text-gray-700 mt-4" [style.text-shadow]="textShadow()">
+                                Current value of the counter1 (writable signal):
+                            </h3>
+                            <pre
+                                class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ count1() }}</pre>
+
+                            <h3 class="font-medium mb-2 text-gray-700 mt-4" [style.text-shadow]="textShadow()">
+                                Current value of the counter2 (readonly signal):
+                            </h3>
+                            <pre
+                                class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ count2() }}</pre>
+
+                            <h3 class="font-medium mb-2 text-gray-700 mt-4" [style.text-shadow]="textShadow()">
+                                Label:
+                            </h3>
+                            <pre class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ label() }}</pre>
+
+                            <!-- Extra content to show the effect better -->
+                            <h3 class="font-medium mb-2 text-gray-700 mt-4" [style.text-shadow]="textShadow()">
+                                Double Count (computed):
+                            </h3>
+                            <pre
+                                class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ doubleCount() }}</pre>
+
+                            <h3 class="font-medium mb-2 text-gray-700 mt-4" [style.text-shadow]="textShadow()">
+                                Blur Progress:
+                            </h3>
+                            <pre
+                                class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ blurProgress() }}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Progress bar -->
+                    <div class="bg-gray-200 rounded-full h-3 overflow-hidden">
+                        <div class="h-full transition-all duration-300 rounded-full" [class]="progressBarClass()"
+                            [style.width.%]="progressPercentage()"></div>
+                    </div>
+                    <p class="text-center text-sm text-gray-600">
+                        Progreso para desbloquear: {{ count1() }}/40 clics
+                    </p>
+                </div>
+            </app-card>
+        </div>
+    </div>
+</div>

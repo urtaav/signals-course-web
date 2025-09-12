@@ -1,5 +1,5 @@
 <div>
-    <app-header-title title="Signal Change Detection" />
+    <app-header-title title="Signal Counter" />
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
         <div class="md:col-span-2 xl:col-span-4">
             <app-card>
@@ -11,21 +11,19 @@
                         </h2>
 
                         <div class="flex items-center  gap-2">
-                            <app-button (buttonClick)="changeUser()" full impact="bold" tone="primary" shape="rounded"
+                            <app-button (buttonClick)="increment()" full impact="bold" tone="primary" shape="rounded"
                                 size="medium">
-                                🔧 Change user
+                                Increment
                             </app-button>
                         </div>
                     </div>
                     <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-primary-400">
-                        <h3 class="font-medium mb-2 text-gray-700">Current user status:</h3>
-                        <pre class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ userSignal() | json }}</pre>
-                    </div>
-                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                        <h3 class="font-medium mb-2 text-blue-800">Child Component (OnPush):</h3>
-                        <div class="bg-white p-3 rounded border">
-                            <app-child [user]="userSignal()"></app-child>
-                        </div>
+                        <h3 class="font-medium mb-2 text-gray-700">Current value of the counter0:</h3>
+                        <pre class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ count0 }}</pre>
+                        <h3 class="font-medium mb-2 text-gray-700">Current value of the counter1:</h3>
+                        <pre class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ count1() }}</pre>
+                        <h3 class="font-medium mb-2 text-gray-700">Current value of the counter2:</h3>
+                        <pre class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ count2() }}</pre>
                     </div>
                 </div>
             </app-card>

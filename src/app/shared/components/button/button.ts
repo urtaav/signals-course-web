@@ -17,8 +17,8 @@ type ButtonProps = {
   templateUrl: './button.html',
   styleUrl: './button.css'
 })
-export class Button implements OnInit{
-impact = input<ButtonProps['impact']>('none');
+export class Button implements OnInit {
+  impact = input<ButtonProps['impact']>('none');
   size = input<ButtonProps['size']>('medium');
   shape = input<ButtonProps['shape']>('rounded');
   tone = input<ButtonProps['tone']>('primary');
@@ -90,7 +90,7 @@ impact = input<ButtonProps['impact']>('none');
     large: 'shadow-lg',
   };
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.classes = cx(

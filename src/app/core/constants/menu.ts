@@ -19,12 +19,12 @@ export class Menu {
         {
           icon: 'icons/heroicons/outline/lock-closed.svg',
           label: 'Core Primitives',
-          route: '/auth',
+          route: '/core-primitives',
           children: [
-            { label: 'Counter Computed Signal', route: '/auth/sign-up' },
-            { label: 'Counter Effect Signal', route: '/auth/sign-in' },
-            { label: 'LinkedSignal Race Condition', route: '/auth/forgot-password' },
-            { label: 'LinkedSignal', route: '/auth/new-password' }
+            { label: 'Counter Computed Signal', route: '/core-primitives/counter-signal' },
+            { label: 'Counter Effect Signal', route: '/core-primitives/counter-effect' },
+            { label: 'LinkedSignal ', route: '/core-primitives/linkedSignal' },
+            { label: 'LinkedSignal Race Condition', route: '/core-primitives/linkedSignal-race' }
           ],
         },
         {

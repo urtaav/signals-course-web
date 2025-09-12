@@ -58,7 +58,6 @@ export class MenuService implements OnDestroy {
         }),
       };
     });
-
     this._pagesMenu.set(updatedMenu);
   }
 
@@ -77,7 +76,12 @@ export class MenuService implements OnDestroy {
       matrixParams: 'ignored',
     });
   }
-
+/**
+ * Actualiza el signal del menú
+ */
+public updatePagesMenu(updatedMenu: MenuItem[]): void {
+  this._pagesMenu.set(updatedMenu);
+}
   ngOnDestroy(): void {
     this._subscription.unsubscribe();
   }
