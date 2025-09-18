@@ -3,11 +3,11 @@ import { MenuItem } from '../models/menu.model';
 export class Menu {
   public static pages: MenuItem[] = [
     {
-      group: 'Signals',
+      group: 'Topics',
       separator: false,
       items: [
         {
-          icon: 'icons/heroicons/outline/chart-pie.svg',
+          icon: 'icons/heroicons/custom/change-detection.svg',
           label: 'Change Detection',
           route: '/change-detection',
           children: [{ label: 'Default Change Detection indirect', route: '/change-detection/default-change-detection-indirect' },
@@ -17,7 +17,7 @@ export class Menu {
           ],
         },
         {
-          icon: 'icons/heroicons/outline/lock-closed.svg',
+          icon: 'icons/heroicons/custom/core-primitives.svg',
           label: 'Core Primitives',
           route: '/core-primitives',
           children: [
@@ -28,7 +28,7 @@ export class Menu {
           ],
         },
         {
-          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          icon: 'icons/heroicons/custom/input-output.svg',
           label: 'Input / Output',
           route: '/errors',
           children: [
@@ -37,7 +37,7 @@ export class Menu {
           ],
         },
         {
-          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          icon: 'icons/heroicons/custom/model.svg',
           label: 'Model Examples',
           route: '/errors',
           children: [
@@ -47,7 +47,7 @@ export class Menu {
           ],
         },
         {
-          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          icon: 'icons/heroicons/custom/queries.svg',
           label: 'Queries',
           route: '/errors',
           children: [
@@ -56,7 +56,7 @@ export class Menu {
           ],
         },
         {
-          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          icon: 'icons/heroicons/custom/router.svg',
           label: 'Router',
           route: '/errors',
           children: [
@@ -65,7 +65,7 @@ export class Menu {
           ],
         },
         {
-          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          icon: 'icons/heroicons/custom/async.svg',
           label: 'Async / Resources',
           route: '/errors',
           children: [
@@ -75,7 +75,7 @@ export class Menu {
           ],
         },
         {
-          icon: 'icons/heroicons/outline/exclamation-triangle.svg',
+          icon: 'icons/heroicons/custom/rxjs.svg',
           label: 'RxJS Interop',
           route: '/errors',
           children: [

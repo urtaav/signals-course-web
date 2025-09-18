@@ -17,7 +17,7 @@ export const ERROR_ROUTES: Routes = [
                 title: 'Error 404 - Página no encontrada'
             },
             {
-                path: ' 500',
+                path: '500',
                 component: Error500,
                 title: 'Error 500 - Error del servidor'
             }
