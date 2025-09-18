@@ -1,0 +1,24 @@
+<div>
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+        <div class="md:col-span-2 xl:col-span-4">
+            <app-card>
+                <div class="space-y-4">
+                    <div
+                        class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-primary-500">
+
+                        <div class="flex items-center  gap-2">
+                            <app-button (buttonClick)="notify()" full impact="bold" tone="primary" shape="rounded"
+                                size="medium">
+                                Notify parent
+                            </app-button>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-primary-400">
+                        <h3 class="font-medium mb-2 text-gray-700">Count :</h3>
+                        <pre class="text-sm bg-white p-3 rounded border font-mono text-gray-800">{{ count }}</pre>
+                    </div>
+                </div>
+            </app-card>
+        </div>
+    </div>
+</div>

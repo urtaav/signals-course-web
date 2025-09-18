@@ -32,8 +32,8 @@ export class Menu {
           label: 'Input / Output',
           route: '/errors',
           children: [
-            { label: 'Using Decorators', route: '/errors/404' },
-            { label: 'Using Signals', route: '/errors/500' },
+            { label: 'Using Decorators', route: '/input-ouput/decorator' },
+            { label: 'Using Signals', route: '/input-ouput/signals' },
           ],
         },
         {

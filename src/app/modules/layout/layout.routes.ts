@@ -21,8 +21,13 @@ export const LAYOUT_ROUTES: Routes = [
             },
             {
                 path: 'core-primitives',
-                 loadChildren: () => import('../core-primitives/core-primitices.routes').then(m => m.COREPRIMITIVES_ROUTES),
-                title: 'Change Detection'
+                 loadChildren: () => import('../core-primitives/core-primitives.routes').then(m => m.COREPRIMITIVES_ROUTES),
+                title: 'Core primitives'
+            },
+            {
+                path: 'input-ouput',
+                 loadChildren: () => import('../input-output/input-output.routes').then(m => m.INPUT_OUTPUT_ROUTES),
+                title: 'input-ouput'
             },
              { path: '**', redirectTo: 'error/404' },
         ]

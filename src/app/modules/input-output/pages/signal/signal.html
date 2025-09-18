@@ -1,0 +1,33 @@
+<div>
+    <app-header-title title="Input / Output (signals)" />
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+        <div class="md:col-span-2 xl:col-span-4">
+            <app-card>
+                <div class="space-y-4">
+                    <div
+                        class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-primary-500">
+                        <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            🎮 <span class="ml-2">Testing Area</span>
+                        </h2>
+
+                        <div class="flex items-center  gap-2">
+                                <!-- Reactive signal update; UI updates automatically -->
+                            <app-button (buttonClick)="incrementCount()" full impact="bold" tone="primary" shape="rounded"
+                                size="medium">
+                                +1
+                            </app-button>
+                            <p>Parent sees count {{count()}}</p>
+                        </div>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <h3 class="font-medium mb-2 text-blue-800">Child Component:</h3>
+                        <div class="bg-white p-3 rounded border">
+                               <!-- Pass the signal itself, not a plain value -->
+                            <app-child-signals [count]="count()" (increment)="onIncrement()"/>
+                        </div>
+                    </div>
+                </div>
+            </app-card>
+        </div>
+    </div>
+</div>
