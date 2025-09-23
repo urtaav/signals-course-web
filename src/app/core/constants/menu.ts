@@ -39,29 +39,29 @@ export class Menu {
         {
           icon: 'icons/heroicons/custom/model.svg',
           label: 'Model Examples',
-          route: '/errors',
+          route: '/double-data-binding',
           children: [
-            { label: 'ng-model Example', route: '/errors/404' },
-            { label: 'Model Signal', route: '/errors/500' },
-            { label: '/model-io-signal', route: '/errors/500' },
+            { label: 'ng-model Example', route: '/double-data-binding/ng-model' },
+            { label: 'Model Signals', route: '/double-data-binding/model-signals' },
+            { label: 'model-io-signals', route: '/double-data-binding/model-io-signals' },
           ],
         },
         {
           icon: 'icons/heroicons/custom/queries.svg',
           label: 'Queries',
-          route: '/errors',
+          route: '/queries',
           children: [
-            { label: 'Query Decorator', route: '/errors/404' },
-            { label: 'Query Signal', route: '/errors/500' },
+            { label: 'Query Decorator', route: '/queries/decorator' },
+            { label: 'Query Signal', route: '/queries/signals' },
           ],
         },
         {
           icon: 'icons/heroicons/custom/router.svg',
           label: 'Router',
-          route: '/errors',
+          route: '/routes',
           children: [
-            { label: 'Without Signals', route: '/errors/404' },
-            { label: 'With Signals', route: '/errors/500' },
+            { label: 'Without Signals', route: '/routes/router-without-signals/1' },
+            { label: 'With Signals', route: '/routes/router-signals/1' },
           ],
         },
         {

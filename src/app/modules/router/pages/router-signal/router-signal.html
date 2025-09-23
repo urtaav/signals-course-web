@@ -1,0 +1,40 @@
+<div>
+    <app-header-title title="Signals Router" />
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+        <div class="md:col-span-2 xl:col-span-4">
+            <app-card>
+                <div class="space-y-4">
+
+                    <div class="nav-card bg-gradient-to-r from-blue-50 to-indigo-50 p-6 border-l-4 border-primary-500"
+                        [class.loading]="showAnimation"
+                        style="border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;">
+
+                        <h2 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+                            🎮 <span class="ml-2">Testing Area</span>
+                        </h2>
+
+                        <div class="flex items-center gap-2">
+                            <app-button (buttonClick)="goNext()" [disabled]="showAnimation" full impact="bold"
+                                tone="primary" shape="rounded" size="medium">
+                                {{ showAnimation ? 'Navigating...' : 'Go to next user' }}
+                            </app-button>
+                        </div>
+                    </div>
+
+                    <div class="state-card bg-blue-50 p-4 border border-blue-200" [class.updating]="showAnimation"
+                        style="border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;">
+
+                        <div class="pulse-overlay" [style.display]="showAnimation ? 'block' : 'none'"></div>
+
+                        <h3 class="font-medium mb-2 text-blue-800">User ID:</h3>
+
+                        <div class="bg-white p-3 rounded border">
+                            <p class="text-lg font-mono">{{ id() }}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </app-card>
+        </div>
+    </div>
+</div>

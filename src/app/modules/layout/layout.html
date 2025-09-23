@@ -1,9 +1,22 @@
+<!-- Progress Bar Global -->
+
+
 <div class="flex h-screen w-full overflow-hidden">
+        <!-- Progress Bar -->
+    <app-progress-bar 
+      [isLoading]="navigationService.isLoading()" />
+    
+    <!-- Spinner -->
+    <app-navigation-spinner 
+      [isLoading]="navigationService.isLoading()"
+      size="normal"
+      speed="normal"
+      position="top-right" />
     <!-- Sidebar -->
-    <app-sidebar/>
+    <app-sidebar />
     <div class="flex grow flex-col content-start overflow-hidden bg-card">
         <!-- Header -->
-        <app-navbar/>
+        <app-navbar />
         <!-- main content -->
         <div id="main-content"
             class="scrollbar-thumb-rounded scrollbar-track-rounded grow overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted">
@@ -11,7 +24,7 @@
                 <router-outlet></router-outlet>
             </div>
         </div>
-           <!-- footer -->
-            <app-footer/>
+        <!-- footer -->
+        <app-footer />
     </div>
 </div>

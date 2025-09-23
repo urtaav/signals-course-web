@@ -168,6 +168,7 @@
     --destructive: #ce2c17ff;
     --destructive-foreground: #FAFAFA;
     --border: #E2E8F0;
+    --loading-transition: 0.2s ease-in-out;
   }
 
   .dark {
