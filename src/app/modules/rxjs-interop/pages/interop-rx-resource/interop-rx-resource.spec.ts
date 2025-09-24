@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RxjsInterop } from './rxjs-interop';
+import { InteropRxResource } from './interop-rx-resource';
 
-describe('RxjsInterop', () => {
-  let component: RxjsInterop;
-  let fixture: ComponentFixture<RxjsInterop>;
+describe('InteropRxResource', () => {
+  let component: InteropRxResource;
+  let fixture: ComponentFixture<InteropRxResource>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RxjsInterop]
+      imports: [InteropRxResource]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RxjsInterop);
+    fixture = TestBed.createComponent(InteropRxResource);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

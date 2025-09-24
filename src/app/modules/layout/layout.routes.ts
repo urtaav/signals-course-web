@@ -1,4 +1,6 @@
-import { Routes } from "@angular/router"
+import { Routes } from "@angular/router";
+import { ROUTE_PATHS } from '@core/constants'; 
+
 export const LAYOUT_ROUTES: Routes = [
     {
         path: '',
@@ -43,6 +45,11 @@ export const LAYOUT_ROUTES: Routes = [
                 path: 'routes',
                 loadChildren: () => import('../router/router.routes').then(m => m.ROUTER_ROUTES),
                 title: 'double-data-binding'
+            },
+            {
+                path: ROUTE_PATHS.RXJS.ROOT,
+                loadChildren: () => import('../rxjs-interop/rxjs.routes').then(m => m.RXJS_ROUTES),
+                title: 'RXJS-interop'
             },
             { path: '**', redirectTo: 'error/404' },
         ]

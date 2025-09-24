@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-rxjs-interop',
-  imports: [],
-  templateUrl: './rxjs-interop.html',
-  styleUrl: './rxjs-interop.css'
+  imports: [RouterOutlet],
+  template: `<router-outlet/>`,
 })
-export class RxjsInterop {
-
-}
+export class RxjsInterop {}

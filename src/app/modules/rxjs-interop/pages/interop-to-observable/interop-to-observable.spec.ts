@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Router } from './router';
+import { InteropToObservable } from './interop-to-observable';
 
-describe('Router', () => {
-  let component: Router;
-  let fixture: ComponentFixture<Router>;
+describe('InteropToObservable', () => {
+  let component: InteropToObservable;
+  let fixture: ComponentFixture<InteropToObservable>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Router]
+      imports: [InteropToObservable]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Router);
+    fixture = TestBed.createComponent(InteropToObservable);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

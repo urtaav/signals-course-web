@@ -1,4 +1,5 @@
 import { MenuItem } from '../models/menu.model';
+import { ROUTE_PATHS } from "../../core/constants";
 
 export class Menu {
   public static pages: MenuItem[] = [
@@ -77,13 +78,13 @@ export class Menu {
         {
           icon: 'icons/heroicons/custom/rxjs.svg',
           label: 'RxJS Interop',
-          route: '/errors',
+          route: `${ROUTE_PATHS.RXJS.ROOT}`,
           children: [
-            { label: 'toSignal', route: '/errors/404' },
-            { label: 'toObservable', route: '/errors/500' },
-            { label: 'rxResource', route: '/errors/500' },
-            { label: 'takeUntilDestroyed', route: '/errors/500' },
-            { label: 'Output Examples', route: '/errors/500' },
+            { label: 'toSignal', route: `/${ROUTE_PATHS.RXJS.ROOT}/${ROUTE_PATHS.RXJS.TO_SIGNAL}` },
+            { label: 'toObservable', route: `/${ROUTE_PATHS.RXJS.ROOT}/${ROUTE_PATHS.RXJS.TO_OBSERVABLE}` },
+            { label: 'rxResource', route: `/${ROUTE_PATHS.RXJS.ROOT}/${ROUTE_PATHS.RXJS.RX_RESOURCE}` },
+            { label: 'takeUntilDestroyed', route: `/${ROUTE_PATHS.RXJS.ROOT}/${ROUTE_PATHS.RXJS.TAKE_UNTIL_DESTROYED}`, },
+            { label: 'Output Examples', route: `/${ROUTE_PATHS.RXJS.ROOT}/${ROUTE_PATHS.RXJS.OUTPUT}` },
           ],
         },
       ],
